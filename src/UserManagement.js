@@ -201,7 +201,7 @@ const UserManagement = () => {
       <div style={{ textAlign: "right", marginBottom: "10px" }}>
         Hello, <strong className='logged-user-name'>{loggedInUserName}!</strong>
         <a
-          href='https://user-auth-management-backend.onrender.com/api/login'
+          href='/login'
           className='logout-link'
           onClick={handleLogout}>
           Logout
