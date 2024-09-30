@@ -21,9 +21,12 @@ const Register = () => {
         }
       );
       alert("User registered successfully!");
-      navigate("https://user-auth-management-backend.onrender.com/api/login");
+      navigate("/login");
     } catch (err) {
-      console.error("Registration failed:", err);
+      console.error(
+        "Registration failed:",
+        err.response ? err.response.data : err
+      );
     }
   };
 
@@ -68,10 +71,7 @@ const Register = () => {
           </button>
         </form>
         <p>
-          Already have an account?{" "}
-          <Link to='https://user-auth-management-backend.onrender.com/api/login'>
-            Login
-          </Link>
+          Already have an account? <Link to='/login'>Login</Link>
         </p>
       </div>
     </div>

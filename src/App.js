@@ -13,15 +13,15 @@ const App = () => {
           element={<Register />}
         />
         <Route
-          path='https://user-auth-management-backend.onrender.com/api/login'
+          path='/login'
           element={<Login />}
         />
         <Route
-          path='https://user-auth-management-backend.onrender.com/api/register'
+          path='/register'
           element={<Register />}
         />
         <Route
-          path='https://user-auth-management-backend.onrender.com/api/users'
+          path='/users'
           element={<UserManagement />}
         />
       </Routes>
