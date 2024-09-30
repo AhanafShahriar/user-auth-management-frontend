@@ -1,0 +1,75 @@
+/* Top Bar Styles */
+.top-bar {
+  padding: 10px;
+  background-color: #2e3440;
+  color: white;
+}
+h1 {
+  color: #a3be8c;
+}
+.user-info {
+  color: #a3be8c;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.logout-link {
+  color: #1a5f86;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+  color: #0073e6;
+}
+
+/* General container styling */
+.user-management-container {
+  background-color: #1c1e29;
+  color: #a3be8c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); /* Soft shadow */
+  padding: 50px 50px 80px 50px;
+}
+
+/* Toolbar styling */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+/* Button styling */
+.toolbar .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+  text-align: center;
+
+  font-size: 0.7rem;
+}
+
+.delete-btn {
+  background-color: #ff6b6b;
+}
+
+.delete-btn:hover {
+  background-color: #ff4c4c;
+}
+
+/* Table styling */
+.logged-user-name {
+  margin-right: 10px;
+}
+/* Badge styling for status */
+.badge-success {
+  background-color: #4caf50;
+}
+
+.badge-danger {
+  background-color: #ff6b6b;
+}
