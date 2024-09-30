@@ -27,6 +27,11 @@ const Register = () => {
         "Registration failed:",
         err.response ? err.response.data : err
       );
+      alert(
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : "Registration failed"
+      );
     }
   };
 
