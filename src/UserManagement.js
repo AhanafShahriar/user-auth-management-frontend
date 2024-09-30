@@ -15,7 +15,7 @@ const UserManagement = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("https://user-auth-management-backend.onrender.com/api/login");
+      navigate("/login");
       return;
     }
 
@@ -38,9 +38,7 @@ const UserManagement = () => {
 
         if (user && user.blocked) {
           localStorage.removeItem("token");
-          navigate(
-            "https://user-auth-management-backend.onrender.com/api/login"
-          );
+          navigate("/login");
           return;
         }
 
@@ -54,9 +52,7 @@ const UserManagement = () => {
         setUsers(response.data);
       } catch (err) {
         console.error("Error fetching users:", err);
-        navigate(
-          "https://user-auth-management-backend.onrender.com/api/register"
-        );
+        navigate("/register");
       }
     };
 
@@ -91,7 +87,7 @@ const UserManagement = () => {
 
       if (isSelfBlocked) {
         localStorage.removeItem("token");
-        navigate("https://user-auth-management-backend.onrender.com/api/login");
+        navigate("/login");
         return;
       }
 
@@ -142,7 +138,7 @@ const UserManagement = () => {
       const isSelfUnblocked = selectedUsers.includes(userId);
       if (isSelfUnblocked) {
         localStorage.removeItem("token");
-        navigate("https://user-auth-management-backend.onrender.com/api/login");
+        navigate("/login");
       }
     } catch (err) {
       console.error("Error unblocking users:", err);
@@ -174,11 +170,9 @@ const UserManagement = () => {
 
       if (isSelfDeleted) {
         localStorage.removeItem("token");
-        navigate("https://user-auth-management-backend.onrender.com/api/login");
+        navigate("/login");
       } else if (users.length === 1) {
-        navigate(
-          "https://user-auth-management-backend.onrender.com/api/register"
-        );
+        navigate("/register");
       }
     } catch (err) {
       console.error("Error deleting users:", err);
@@ -187,7 +181,7 @@ const UserManagement = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("https://user-auth-management-backend.onrender.com/api/login");
+    navigate("/login");
   };
 
   const formatDate = (timestamp) => {
