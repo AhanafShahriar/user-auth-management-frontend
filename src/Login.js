@@ -59,10 +59,7 @@ const Login = () => {
         </form>
         <p>
           Not registered?
-          <Link to='https://user-auth-management-backend.onrender.com/api/register'>
-            {" "}
-            Create an account
-          </Link>
+          <Link to='/register'> Create an account</Link>
         </p>
       </div>
     </div>
