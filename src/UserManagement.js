@@ -179,7 +179,8 @@ const UserManagement = () => {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     localStorage.removeItem("token");
     navigate("/login");
   };
