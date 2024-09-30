@@ -11,7 +11,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/login", { email, password });
+      const res = await axios.post(
+        "https://user-auth-management-backend.onrender.com/api/login",
+        { email, password }
+      );
       localStorage.setItem("token", res.data.token);
       navigate("/users");
     } catch (err) {
@@ -56,7 +59,10 @@ const Login = () => {
         </form>
         <p>
           Not registered?
-          <Link to='/register'> Create an account</Link>
+          <Link to='https://user-auth-management-backend.onrender.com/api/register'>
+            {" "}
+            Create an account
+          </Link>
         </p>
       </div>
     </div>

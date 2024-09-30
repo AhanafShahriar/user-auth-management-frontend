@@ -15,15 +15,18 @@ const UserManagement = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/login");
+      navigate("https://user-auth-management-backend.onrender.com/api/login");
       return;
     }
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("/api/users", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          "https://user-auth-management-backend.onrender.com/api/users",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
 
         if (response.data.length === 0) {
           navigate("/register");
@@ -35,7 +38,9 @@ const UserManagement = () => {
 
         if (user && user.blocked) {
           localStorage.removeItem("token");
-          navigate("/login");
+          navigate(
+            "https://user-auth-management-backend.onrender.com/api/login"
+          );
           return;
         }
 
@@ -49,7 +54,9 @@ const UserManagement = () => {
         setUsers(response.data);
       } catch (err) {
         console.error("Error fetching users:", err);
-        navigate("/register");
+        navigate(
+          "https://user-auth-management-backend.onrender.com/api/register"
+        );
       }
     };
 
@@ -75,7 +82,7 @@ const UserManagement = () => {
 
     try {
       await axios.post(
-        "/api/block",
+        "https://user-auth-management-backend.onrender.com/api/block",
         { userIds: selectedUsers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -84,7 +91,7 @@ const UserManagement = () => {
 
       if (isSelfBlocked) {
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("https://user-auth-management-backend.onrender.com/api/login");
         return;
       }
 
@@ -119,7 +126,7 @@ const UserManagement = () => {
 
     try {
       await axios.post(
-        "/api/unblock",
+        "https://user-auth-management-backend.onrender.com/api/unblock",
         { userIds: selectedUsers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -135,7 +142,7 @@ const UserManagement = () => {
       const isSelfUnblocked = selectedUsers.includes(userId);
       if (isSelfUnblocked) {
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("https://user-auth-management-backend.onrender.com/api/login");
       }
     } catch (err) {
       console.error("Error unblocking users:", err);
@@ -153,7 +160,7 @@ const UserManagement = () => {
 
     try {
       await axios.post(
-        "/api/delete",
+        "https://user-auth-management-backend.onrender.com/api/delete",
         { userIds: selectedUsers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -167,9 +174,11 @@ const UserManagement = () => {
 
       if (isSelfDeleted) {
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("https://user-auth-management-backend.onrender.com/api/login");
       } else if (users.length === 1) {
-        navigate("/register");
+        navigate(
+          "https://user-auth-management-backend.onrender.com/api/register"
+        );
       }
     } catch (err) {
       console.error("Error deleting users:", err);
@@ -178,7 +187,7 @@ const UserManagement = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("https://user-auth-management-backend.onrender.com/api/login");
   };
 
   const formatDate = (timestamp) => {
@@ -198,7 +207,7 @@ const UserManagement = () => {
       <div style={{ textAlign: "right", marginBottom: "10px" }}>
         Hello, <strong className='logged-user-name'>{loggedInUserName}!</strong>
         <a
-          href='/login'
+          href='https://user-auth-management-backend.onrender.com/api/login'
           className='logout-link'
           onClick={handleLogout}>
           Logout

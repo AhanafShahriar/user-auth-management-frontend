@@ -12,13 +12,16 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/register", {
-        name,
-        email,
-        password,
-      });
+      await axios.post(
+        "https://user-auth-management-backend.onrender.com/api/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       alert("User registered successfully!");
-      navigate("/login");
+      navigate("https://user-auth-management-backend.onrender.com/api/login");
     } catch (err) {
       console.error("Registration failed:", err);
     }
@@ -65,7 +68,10 @@ const Register = () => {
           </button>
         </form>
         <p>
-          Already have an account? <Link to='/login'>Login</Link>
+          Already have an account?{" "}
+          <Link to='https://user-auth-management-backend.onrender.com/api/login'>
+            Login
+          </Link>
         </p>
       </div>
     </div>
